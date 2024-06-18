@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import  { useEffect, useState } from "react";
 import BlogCards from "./BlogCards";
 import Pagination from "./Pagination";
 import CategorySelection from "./CategorySelection";
-import { SiDebian } from "react-icons/si";
 import SideBar from "./SideBar";
 
 function BlogPage() {
@@ -11,7 +10,8 @@ function BlogPage() {
   const pageSize = 12;
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [activeCategory, setActiveCategory] = useState(null);
-  useState(() => {
+  
+  useEffect(() => {
     let url = `https://coderespite.com/api/blogsData.json?page=${currentPage}&limit=${pageSize}`;
 
     //filter by category

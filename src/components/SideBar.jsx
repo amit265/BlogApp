@@ -22,7 +22,7 @@ const SideBar = () => {
                     className="my-5 border-b-2 border-spacing-2px-4"
                     >
                         <h4 className="font-medium mb-2">{blog.title}</h4>
-                        <Link to="/" className="font-medium text-base pb-2 hover:text-orange-500 inline-flex items-center" >Read more<FaArrowRight className="mt-1 ml-2" /></Link>
+                        <Link to={`/blogs/${blog.id}`} className="font-medium text-base pb-2 hover:text-orange-500 inline-flex items-center" >Read more<FaArrowRight className="mt-1 ml-2" /></Link>
 
                     </div>)
                 }
@@ -37,7 +37,7 @@ const SideBar = () => {
                     className="my-5 border-b-2 border-spacing-2px-4"
                     >
                         <h4 className="font-medium mb-2">{blog.title}</h4>
-                        <Link to="/" className="font-medium text-base pb-2 hover:text-orange-500 inline-flex items-center" >Read more<FaArrowRight className="mt-1 ml-2" /></Link>
+                        <Link to={`/blogs/${blog.id}`} className="font-medium text-base pb-2 hover:text-orange-500 inline-flex items-center" >Read more<FaArrowRight className="mt-1 ml-2" /></Link>
 
                     </div>)
                 }

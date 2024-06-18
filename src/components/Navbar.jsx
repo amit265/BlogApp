@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import '../../src/App.css'
+import "../../src/App.css";
 import Modal from "./Modal";
 import {
   FaBars,
@@ -21,10 +21,16 @@ function Navbar() {
 
   const openModal = () => {
     setIsModalOpen(true);
-  }
+  };
 
   const closeModal = () => {
     setIsModalOpen(false);
+  };
+
+  const loginCLick = () => {
+    toggleMenu();
+    openModal();
+
   }
 
   //nav Items
@@ -39,8 +45,12 @@ function Navbar() {
   return (
     <header className="bg-black fixed top-0 left-0 right-0">
       <nav className="px-4 py-4 max-w-7xl mx-auto flex justify-between">
-        <a href="/" className="text-xl font-bold text-white">
-          Design<span className="text-orange-400">DK</span>
+        <a href="/" className="text-xl font-bold text-orange-700">
+          <span className="text-white text-2xl">{'<'}</span>Code
+          <span className="text-white">
+            Respite<span className="blink">/</span>
+            <span className="text-orange-500 text-2xl">{'>'}</span>
+          </span>
         </a>
 
         {/* Navigation for large devices */}
@@ -49,7 +59,7 @@ function Navbar() {
           {navItems.map(({ path, link }) => (
             <li key={path} className="text-white">
               <NavLink
-                className={({ isActive }) => isActive ? "active" : ""}
+                className={({ isActive }) => (isActive ? "active" : "")}
                 to={path}
               >
                 {link}
@@ -78,9 +88,9 @@ function Navbar() {
           </button>
         </div>
 
-            {/* Modal is here */}
+        {/* Modal is here */}
 
-            <Modal isOpen = {isModalOpen} onClose={closeModal}/>
+        <Modal isOpen={isModalOpen} onClose={closeModal} />
 
         {/* mobile menu btn */}
 
@@ -98,7 +108,7 @@ function Navbar() {
 
       <div>
         <ul
-          className={`md:hidden gap-12 text-lg block space-y-4 px-4 py-6 mt-14 bg-white ${
+          className={`md:hidden text-center gap-12 text-lg block space-y-4 px-4 py-6 mt-14 bg-white ${
             isMenuOpen
               ? "fixed top-0 left-0 w-full transition-all ease-out duration-150"
               : "hidden"
@@ -111,6 +121,13 @@ function Navbar() {
               </NavLink>
             </li>
           ))}
+          <button
+            onClick={loginCLick}
+            className="bg-orange-500 px-6 py-2 font-medium rounded hover:bg-white 
+            hover:text-orange-500 transition-all duration-100 ease-out"
+          >
+            Log in
+          </button>
         </ul>
       </div>
     </header>
