@@ -30,37 +30,38 @@ function Navbar() {
   const loginCLick = () => {
     toggleMenu();
     openModal();
-
-  }
+  };
 
   //nav Items
 
   const navItems = [
-    { path: "/", link: "Home" },
-    { path: "/blogs", link: "Blogs" },
-    { path: "/about", link: "About" },
-    { path: "/services", link: "Services" },
-    { path: "/contact", link: "Contact" },
+    { path: "/blog", link: "Home", end: true },
+    { path: "/blog/blogs", link: "Blogs" },
+    { path: "/blog/about", link: "About" },
+    { path: "/blog/services", link: "Services" },
+    { path: "/blog/contact", link: "Contact" },
   ];
+
   return (
     <header className="bg-black fixed top-0 left-0 right-0">
       <nav className="px-4 py-4 max-w-7xl mx-auto flex justify-between">
         <a href="/" className="text-xl font-bold text-orange-700">
-          <span className="text-white text-2xl">{'<'}</span>Code
+          <span className="text-white text-2xl">{"<"}</span>Code
           <span className="text-white">
             Respite<span className="blink">/</span>
-            <span className="text-orange-500 text-2xl">{'>'}</span>
+            <span className="text-orange-500 text-2xl">{">"}</span>
           </span>
         </a>
 
         {/* Navigation for large devices */}
 
         <ul className="md:flex gap-12 text-lg hidden">
-          {navItems.map(({ path, link }) => (
+          {navItems.map(({ path, link, end }) => (
             <li key={path} className="text-white">
               <NavLink
                 className={({ isActive }) => (isActive ? "active" : "")}
                 to={path}
+                end={end}
               >
                 {link}
               </NavLink>
